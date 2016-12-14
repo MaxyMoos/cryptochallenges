@@ -20,9 +20,11 @@ def xor_bytes_to_bytes(first, second):
 def AES_CBC_encrypt(plaintext, key, IV):
     if len(plaintext) % 16 != 0:
         padded_plaintext = nine.pad_string(plaintext, 4, 16)
+    else:
+        padded_plaintext = plaintext
 
     # Prepare inputs
-    padded_plaintext_bytes = padded_plaintext.encode('utf-8')
+    padded_plaintext_bytes = padded_plaintext.encode('latin1')
 
     prev = IV
     nb_blocks = int(len(padded_plaintext_bytes) / 16)
