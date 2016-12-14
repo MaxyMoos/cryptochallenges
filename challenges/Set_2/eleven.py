@@ -13,7 +13,7 @@ def generate_random_bytes(size):
         key_data.append(random.randint(0, 255))
     return bytes(bytearray(key_data))
 
-def AES_encrypt_with_unknown_key(cleartext):
+def AES_encrypt_random_mode_with_unknown_key(cleartext):
     key = generate_random_bytes(16)
 
     nb_of_prebytes = random.randint(5, 10)
@@ -59,4 +59,4 @@ def is_algo_ECB_or_CBC(cipher_function):
     analyze_ECB_or_CBC(ciphertext)
 
 if __name__ == '__main__':
-    is_algo_ECB_or_CBC(AES_encrypt_with_unknown_key)
+    is_algo_ECB_or_CBC(AES_encrypt_random_mode_with_unknown_key)
